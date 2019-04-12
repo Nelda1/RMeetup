@@ -1,0 +1,73 @@
+---
+title: "Jam Markdown session"
+author: "Nelda"
+date: "4/12/2019"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is R Markdown?
+Watch this video https://vimeo.com/178485416 to start us off.<br>
+
+
+_In summary_<br>
+R Markdown is a file format for making dynamic documents with R.<br> Simple plain text file with 3 types of content <br>
+1. Code Chuncks to run<br>
+2. Texts to display<br>
+3. Metadata to guide
+<br>
+
+Why is it Useful?<br>
+* Generate reports of your work<br>
+* Reproducibility
+<br>
+
+Building a report<br>
+1. Use render function render("Jam Session.Rmd")<br>
+2. Knit Button in the IDE<br>
+<br>
+
+Report Formats can be HTML, PDF, Word Document, SLideshows, dashboards, books, websites, intercative apps, etc <br>
+
+##Getting Started<br>
+Select File > TextFile<br>
+Save with ext .Rmd<br>
+OR<br>
+select File > New File > R Markdown 
+
+## Code Chunks to Run
+- Using delimiters ```{r} ``` to write a code in R<br>
+- Name your code chunck ```{r, name}```<br>
+__Chunck Options__<br>
+__eval__ = FALSE prevents code from being evaluated. (And obviously if the code is not run, no results will be generated). <br>
+__include__ = FALSE runs the code, but doesn’t show the code or results in the final document. <br>
+__echo__ = FALSE prevents code, but not the results from appearing in the finished file. <br>
+__message__= FALSE or warning = FALSE prevents messages or warnings from appearing in the finished file.<br>
+__results__ = 'hide' hides printed output; fig.show = 'hide' hides plots.<br>
+__error__ = TRUE causes the render to continue even if code returns an error. <br>
+
+
+## Slide with R Output
+
+```{r women, echo = TRUE}
+data(women)
+str(women)
+summary(women)
+plot(women)
+```
+
+## Slide with Plot
+
+```{r plots, echo=FALSE}
+hist(women$height)
+boxplot(women$weight)
+```
+## Inline R Code
+<br>
+The mean speed of women was `r mean(women$height)`.
+<br>
+
+#Assignment
